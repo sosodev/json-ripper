@@ -9,3 +9,9 @@ what {"is": "this?"} wow {"that's": "cool"}
 
 [{"is":"this?"},{"that's":"cool"}]
 ```
+
+## Install
+
+with a correctly configured Go installation run
+
+`go install github.com/sosodev/json-ripper@latest`
