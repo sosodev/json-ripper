@@ -1,0 +1,15 @@
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o binary-module
+cp binary-module /home/kyle/Projects/ansible/library
+(cd /home/kyle/Projects/ansible && ANSIBLE_LIBRARY=library ansible-playbook -v -i stage/ playbooks/oneoff/binary-test.yml)
+Using /home/kyle/Projects/ansible/ansible.cfg as config file
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable on deprecation. This feature will be
+removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+PLAY [real-node.yes] *******************************************************************************************************************************************************************************
+
+TASK [Check BMC] **************************************************************************************************************************************************************************************************
+ok: [real-node.yes] => {"changed": false, "some-json": {"hello": "world"}}
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+real-node.yes: ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=
