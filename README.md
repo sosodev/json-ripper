@@ -13,7 +13,7 @@ what {"is": "this?"} wow {"that's": "cool"}
 or with the `-no-echo` flag you just get the ripped JSON without an echo of the input
 
 ```bash
-echo "what {\"is\": \"this?\"} wow {\"that's\": \"cool\"}" | json-ripper
+echo "what {\"is\": \"this?\"} wow {\"that's\": \"cool\"}" | json-ripper -no-echo
 
 [{"is":"this?"},{"that's":"cool"}]
 ```
