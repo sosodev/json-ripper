@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"os"
 
@@ -9,13 +10,19 @@ import (
 )
 
 func main() {
+	silent := flag.Bool("no-echo", false, "disable input echo")
+	flag.Parse()
+
 	stdinScanner := bufio.NewScanner(os.Stdin)
 
 	fullStdin := ""
 	for stdinScanner.Scan() {
 		text :=	stdinScanner.Text()
 		fullStdin += text
-		fmt.Println(text)
+
+		if !*silent {
+			fmt.Println(text)
+		}
 	}
 
 	if stdinScanner.Err() != nil {
